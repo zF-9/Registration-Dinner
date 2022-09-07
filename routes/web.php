@@ -19,6 +19,7 @@ Route::get('/', function () {
 Route::get('/regist', function () {
     //return view('datatable');
     $penama = DB::table('list_names')->get();
+    //dd($penama);
 
     return view('tables', ['penama' => $penama]);    
 })->name('registration');
@@ -35,6 +36,7 @@ Route::get('/confirmation', function () {
     //return view('datatable');
     $penama = DB::table('list_names')->get();
 
+    //dd($penama);
     return view('tables', ['penama' => $penama]);    
 });
 

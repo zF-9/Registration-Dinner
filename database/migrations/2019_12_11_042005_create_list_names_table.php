@@ -16,7 +16,7 @@ class CreateListNamesTable extends Migration
         Schema::create('list_names', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nama');
-            $table->string('meja');
+            //$table->string('meja');
             $table->string('jabatan');
             $table->string('jam')->nullable();
             $table->boolean('attend')->default(0);

@@ -99,7 +99,8 @@
 
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"></span>
-                <img class="img-profile rounded-circle" src="{{url('/storage/rageface.jpeg')}}">
+                <img class="img-profile rounded-circle" src="https://i.pinimg.com/474x/18/9d/f4/189df4173f620321292cbbe917640121.jpg">
+                <!-- {{url('/storage/rageface.jpeg')}} -->
               </a>
 
               <!-- Dropdown - User Information -->
@@ -148,42 +149,42 @@
                 <table class="table table-bordered" id="dataTableX" width="100%" cellspacing="0">
                       <thead>
                         <tr>
-                          <th>No.</th>
+                          <!--<th>No.</th>-->
                           <th>Name</th>
                           <th>Jabatan/Tempat Bertugas</th>
-                          <th>Table</th>
-                          <th>Time</th>
-                          <th>Attendance</th>
+                          <!--<th>Table</th>-->
+                          <th>Masa Pendaftaran</th>
+                          <th>Kehadiran</th>
                           <!--<th>Edit</th>-->
                         </tr>
                       </thead>
                       <tfoot>
                         <tr>
-                          <th>No.</th>
+                          <!--<th>No.</th>-->
                           <th>Name</th>
                           <th>Jabatan/Tempat Bertugas</th>
-                          <th>Table</th>
-                          <th>Time</th>
-                          <th>Attendance</th>
+                          <!--<th>Table</th>-->
+                          <th>Masa Pendaftaran</th>
+                          <th>Kehadiran</th>
                           <!--<th>Edit</th>-->
                         </tr>
                       </tfoot>
                   <tbody>
                     @foreach($penama as $key => $data)
                     <tr>
-                      <td>{{ $data -> id }}</td>
+                      <!--<td>{{ $data -> id }}</td>-->
                       <td><span style="font-weight: bold">{{ $data -> nama }}</span></td>
                       <td>{{ $data -> jabatan }}</td>
-                      <td>{{ $data -> meja }}</td>  
-                      <td>{{ $data -> jam }}</td>
-                      <td>    
-                        <!--<button id="xbutton" data-toggle="modal" data-target="#myModal" class="btn btn-success row-button" style="float:right; margin:12px 0px 12px 0px">
+                      <!--<td>{{ $data -> meja }}</td> -->
+                      @if( $data->jam == "")
+                      <td style="background-color: #FF9999">{{  $data->jam }}</td>
+                      @else 
+                      <td style="background-color: #D6EEEE">{{  $data->jam }}</td>
+                      @endif
+                      <td style="width:100px">    
+                        <button id="xbutton" data-toggle="modal" data-target="#myModal" class="btn btn-success row-button" style="float:center; margin:12px 0px 12px 0px">
                           Daftar
-                        </button>-->
-                        <!--<button id="xbutton" class="row-button btn btn-warning" style="float:right; margin:12px 0px 12px 0px">
-                            submit
-                        </button>-->
-                        {{ $loop->iteration }} of {{ $loop->count }}
+                        </button>
                         <!-- iterate gives nombor loop: count gives the sum of loops -->
                       </td>
                       <!--<td>
@@ -191,7 +192,7 @@
                         <a method="post" href="{{ action('FunctionController@attend', $data='id') }}" class="btn btn-warning">Edit</a>
                       </td>-->
                     </tr> 
-
+                    {{ $loop->iteration }} of {{ $loop->count }}
                     @endforeach
                   </tbody>     
                 </table>
